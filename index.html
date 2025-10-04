@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>mrittika.com — Home</title>
+  <meta name="description" content="mrittika.com — Beautiful, modern single-file website template." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#7dd3fc;--muted:#94a3b8;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#e6eef8;background:linear-gradient(180deg,#071023 0%,#071827 60%);-webkit-font-smoothing:antialiased}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263a}
+    nav{display:flex;gap:18px;align-items:center}
+    a{color:var(--muted);text-decoration:none;font-weight:600}
+    a.cta{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#04263a;padding:10px 14px;border-radius:10px}
+    .hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:48px 0}
+    .hero-inner{background:var(--glass);padding:28px;border-radius:14px;backdrop-filter:blur(6px)}
+    h1{font-size:32px;margin:0 0 8px}
+    p.lead{margin:0;color:var(--muted)}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));padding:18px;border-radius:12px}
+    footer{padding:28px 0;color:var(--muted);font-size:14px;border-top:1px dashed rgba(255,255,255,0.03);margin-top:40px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06)}
+    form input, form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .nav-toggle{display:none}
+    @media (min-width:880px){.hero{grid-template-columns:1fr 420px}.nav-toggle{display:none}}
+    @media (max-width:879px){nav{display:none}.nav-toggle{display:block;background:transparent;border:1px solid rgba(255,255,255,0.05);padding:8px 10px;border-radius:8px;color:var(--muted)}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">M</div>
+        <div>
+          <div style="font-weight:700">mrittika.com</div>
+          <div style="font-size:12px;color:var(--muted)">Earth • Clay • Creativity</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="nav-toggle" id="navToggle">☰</button>
+        <a class="cta" href="#contact">Get in touch</a>
+      </div>
+    </header>
+
+    <main class="hero">
+      <section>
+        <div class="hero-inner">
+          <h1>Welcome to mrittika.com</h1>
+          <p class="lead">A clean, responsive website template for your brand, project, portfolio or small business. Fast, mobile-friendly, and easy to customize.</p>
+
+          <div class="grid-3" style="margin-top:18px">
+            <div class="card">
+              <h3 style="margin:0 0 8px">Simple</h3>
+              <p style="margin:0;color:var(--muted)">Single-file HTML — drop into any host or GitHub Pages.</p>
+            </div>
+            <div class="card">
+              <h3 style="margin:0 0 8px">Responsive</h3>
+              <p style="margin:0;color:var(--muted)">Looks great on phones, tablets and desktop screens.</p>
+            </div>
+            <div class="card">
+              <h3 style="margin:0 0 8px">Accessible</h3>
+              <p style="margin:0;color:var(--muted)">High contrast, semantic HTML and keyboard friendly.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;display:flex;gap:10px">
+            <a class="btn" href="#work">See work</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+        </div>
+      </section>
+
+      <aside style="padding:8px">
+        <div class="card">
+          <h3 style="margin-top:0">Contact</h3>
+          <p style="margin:6px 0;color:var(--muted)">Interested in a custom site or collaboration? Send a message.</p>
+          <form id="contactForm" action="mailto:hello@mrittika.com" method="get" onsubmit="return handleSubmit(event)">
+            <label style="font-size:12px;color:var(--muted)">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+            <label style="font-size:12px;margin-top:8px;color:var(--muted)">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" required />
+            <label style="font-size:12px;margin-top:8px;color:var(--muted)">Message</label>
+            <textarea id="message" rows="4" placeholder="How can we help?" required></textarea>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <button class="btn" type="submit">Send</button>
+              <button class="btn" type="button" onclick="copyEmail()">Copy email</button>
+            </div>
+          </form>
+        </div>
+
+        <div style="margin-top:14px;text-align:center;color:var(--muted);font-size:13px">or email: <strong>hello@mrittika.com</strong></div>
+      </aside>
+    </main>
+
+    <section id="work" style="margin-top:28px">
+      <h2 style="margin-bottom:8px">Portfolio & offerings</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h4 style="margin:0 0 6px">Product / Shop</h4>
+          <p style="margin:0;color:var(--muted)">Showcase handmade goods, products or catalog with buy links.</p>
+        </div>
+        <div class="card">
+          <h4 style="margin:0 0 6px">Studio / About</h4>
+          <p style="margin:0;color:var(--muted)">Tell your story — process, materials and philosophy.</p>
+        </div>
+        <div class="card">
+          <h4 style="margin:0 0 6px">Workshops</h4>
+          <p style="margin:0;color:var(--muted)">Offer classes, bookings and event details.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:28px">
+      <h2 style="margin-bottom:8px">About mrittika</h2>
+      <div class="card">
+        <p style="margin:0;color:var(--muted)">"Mrittika" (meaning: earth/clay in several Indic languages) — use this section to describe your mission, materials, story and team. Replace this text with real content, images or an embedded gallery.</p>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:28px">
+      <h2 style="margin-bottom:8px">Get in touch</h2>
+      <div class="card">
+        <p style="margin:0 0 12px;color:var(--muted)">Prefer a direct email? hello@mrittika.com — or use the form in the header pane.</p>
+        <p style="margin:0;color:var(--muted)">To publish this site: buy the domain <strong>mrittika.com</strong> (if available), upload this file as <code>index.html</code> and host on GitHub Pages, Netlify, Vercel or any static host.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>© <span id="year"></span> mrittika.com</div>
+        <div style="color:var(--muted)">Built with ❤️ • Single-file template</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function handleSubmit(e){
+      // simple client-side validation
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      if(!name||!email||!msg){alert('Please fill all fields');return false}
+      // use mailto fallback
+      const subject = encodeURIComponent('Website contact from ' + name);
+      const body = encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+msg);
+      window.location.href = 'mailto:hello@mrittika.com?subject='+subject+'&body='+body;
+      return false;
+    }
+    function copyEmail(){navigator.clipboard?.writeText('hello@mrittika.com').then(()=>alert('Email copied to clipboard'))}
+    // mobile nav toggle
+    const navBtn = document.getElementById('navToggle');
+    navBtn?.addEventListener('click', ()=>{
+      const nav = document.querySelector('nav');
+      if(nav.style.display==='flex'){nav.style.display='none'}else{nav.style.display='flex';nav.style.flexDirection='column';nav.style.gap='12px'}
+    });
+  </script>
+</body>
+</html>
